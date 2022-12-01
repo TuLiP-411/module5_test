@@ -1,0 +1,25 @@
+<h1>Danh sách sản phẩm</h1>
+<br>
+<button routerLink="/product/create" class=" btn btn-primary">Thêm mới</button>
+<br>
+<table class="table table-hover">
+  <thead class="table-dark">
+  <tr>
+    <td>STT</td>
+    <td>Tên</td>
+    <td>Giá</td>
+    <td>Mô tả</td>
+    <td colspan="2"></td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of products; index as i">
+    <td>{{i + 1}}</td>
+    <td><a [routerLink]="['/product/detail',product.id]">{{product.title}}</a></td>
+    <td>{{product.price}}</td>
+    <td>{{product.description}}</td>
+    <td><button [routerLink]="['/product/edit',product.id]" class=" btn btn-outline-success">Edit</button></td>
+    <td><button [routerLink]="['/product/delete',product.id]" class="btn btn-outline-danger">Delete</button></td>
+  </tr>
+  </tbody>
+</table>
